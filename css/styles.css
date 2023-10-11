@@ -1,0 +1,31 @@
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    .table-head {
+        background-color: crimson;
+        color: white;
+        padding: 10px;
+    }
+    .table-body {
+        tr {
+            &:nth-child(even) {
+                background-color: #333;
+            }
+            td {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.user-table :is(th, td) {
+    padding: 5px 10px;
+        border: 1px solid rgb(244, 85, 188);
+}
+
+.table-body .user-image img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
