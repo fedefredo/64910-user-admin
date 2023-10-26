@@ -14,22 +14,75 @@
         <input type="text" class="input" id="search" placeholder="Buscar por nombre">
     </div>
 
-    <table class="user-table">
-        <thead>
-            <tr class="table-head">
-                <th>Avatar</th>
-                <th>Nombre Completo</th>
-                <th>Email</th>
-                <th>Localidad</th>
-                <th>Edad</th>
-                <th>Fecha Nacimiento</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-            
-        </tbody>
-    </table>
+    <div class="admin-container">
+        <section class="form-container">
+            <form id="user-form">
+                <input type="hidden" name="id">
+                <div class="input-group">
+                    <label for="fullname">Nombre Completo</label>
+                    <input type="text" name="fullname" id="fullname">
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="input-group">
+                    <label for="password2">Repetir Contraseña</label>
+                    <input type="password" name="password2" id="password2">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="input-group">
+                    <select name="location" id="location">
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="Cordoba">Cordoba</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="age">Edad</label>
+                    <input type="number" name="age" id="age">
+                </div>
+                <div class="input-group">
+                    <label for="bornDate">Fecha de nacimiento</label>
+                    <input type="date" name="bornDate" id="bornDate">
+                </div>
+                <div class="input-group">
+                    <label for="image">Url de imagen</label>
+                    <input type="url" name="image" id="image" value="https://i.pinimg.com/originals/6a/22/11/6a2211912adecc10d11d5d35e854c295.jpg">
+                </div>
+                <div class="mb">
+                    <label for="active">Activo</label>
+                    <input type="checkbox" name="active" id="active"> 
+                </div>
+
+                <button type="submit" class="btn-form">Agregar usuario</button>
+            </form>
+        </section>
+        <section class="table-container">
+            <table class="user-table">
+                <thead>
+                    <tr class="table-head">
+                        <th>Avatar</th>
+                        <th>Nombre Completo</th>
+                        <th>Email</th>
+                        <th>Localidad</th>
+                        <th>Edad</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="/js/users.js"></script>
 </body>
