@@ -1,4 +1,4 @@
-const usersArray = [
+const usersStart = [
     {
       fullname: 'John Doe',
       age: 30,
@@ -111,6 +111,24 @@ const usersArray = [
     }
 ];
 
+// const usersArray = JSON.parse(localStorage.getItem("users"))
+
+if (localStorage.getItem("users") === null) {
+    localStorage.setItem("users", JSON.stringify(usersStart))
+}
+
+const usersArray = JSON.parse(localStorage.getItem("users"))
+
+//OTRA MANERA DE HACER LO DE ARRIBA 
+// let usersArray;
+
+// if (JSON.parse(localStorage.getItem(users))) {
+//     //Si es nulo no entra al if 
+//     usersArray = JSON.parse(localStorage.getItem(users))
+// } else {
+//     usersArray = []
+// }
+
 //Obtener el body de la tabla 
 const tableBody = document.getElementById("table-body")
 const searchInput = document.querySelector("#search")
@@ -203,6 +221,8 @@ userForm.addEventListener("submit", (evt) => {
 
     pintarUsuarios(usersArray)
 
+    actualizarLocalStorage()
+
     resetearFormulario()
 })
 
@@ -270,6 +290,12 @@ function pintarUsuarios(arrayPintar) {
 
 pintarUsuarios(usersArray)
 
+//Cuando editamos, agregamos o borramos se tiene que modificar el localStorage
+
+function actualizarLocalStorage() {
+    localStorage.setItem("users", JSON.stringify(usersArray))
+}
+
 function borrarUsuario(ID, nombre) {
     const confirmDelete = confirm(`Realmente desea borrar este usuario ${nombre}`)
 
@@ -277,6 +303,7 @@ function borrarUsuario(ID, nombre) {
         const indice = usersArray.findIndex(user => user.id === ID)
         usersArray.splice(indice, 1)
         pintarUsuarios(usersArray)
+        actualizarLocalStorage()
     }
 }
 
